@@ -1,0 +1,11 @@
+{% extends "base_index.html" %}
+{% block title %} Logowanie {% endblock %}
+{% block content %}
+    {% load crispy_forms_tags %}
+    <form style="margin: 5px !important;" method="post" class="form-group">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <p>Nie masz konta? <a href="/register">Załóż konto!</a></p>
+        <button type="submit" class="btn btn-success">Zaloguj się</button>
+    </form>
+{% endblock %}

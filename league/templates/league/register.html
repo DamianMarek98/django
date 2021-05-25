@@ -1,0 +1,12 @@
+{% extends "base_index.html" %}
+
+{% block title %} Utwórz konto {% endblock %}
+
+{% block content %}
+    {% load crispy_forms_tags %}
+    <form style="margin: 5px !important;" method="post" class="form-group">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Zarejestruj</button>
+    </form>
+{% endblock %}

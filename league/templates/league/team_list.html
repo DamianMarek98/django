@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% block title %} Table {% endblock %}
+{% block content %}
+<table class="table table-bordered" style="width: 60%">
+    <thead>
+    <tr>
+        <th style="width: 25%" scope="col">Pozycja</th>
+        <th style="width: 50%" scope="col">Zespół</th>
+        <th style="width: 25%" scope="col">Punkty</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for team in object_list %}
+    <tr>
+        <th> {{ forloop.counter }}</th>
+        <th> {{ team.name }}</th>
+        <th> {{ team.points }}</th>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
