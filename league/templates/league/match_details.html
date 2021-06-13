@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+{% block title %} <h2>Mecz numer: {{ match.id }}</h2> {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class='wrap' style="align-content: center; text-align: center">
+    <div class="blocks"><h2> {{match.home_team.name}} - {{match.away_team.name}}</h2></div>
+    <div class="blocks"><h3> {{match.home_score}} : {{match.away_score}}</h3></div>
+    <div class="blocks">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 card mb-4  mt-3 ">
+                    <div class="card-body">
+                        <!-- comments -->
+                        <h2>{{ comments.count }} komentarze</h2>
+
+                        {% for comment in comments %}
+                        <div class="comments" style="padding: 10px;">
+                            <p class="font-weight-bold">
+                                {{ comment.user.username }}
+                                <span class=" text-muted font-weight-normal">
+              {{ comment.date_created }}
+            </span>
+                            </p>
+                            {{ comment.text | linebreaks }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-12 card mb-4  mt-3 ">
+                    <div class="card-body">
+                        {% if new_comment %}
+                        <div class="alert alert-success" role="alert">
+                            Twój komentarz został dodany!
+                        </div>
+                        {% else %}
+                        <h3>Utwórz komentarz:</h3>
+                        <form method="post" style="margin-top: 1.3em;">
+                            {{ comment_form | crispy }}
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-info  btn-lg">Dodaj</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

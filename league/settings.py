@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'league',
+    'hitcount',
 ]
 
 MIDDLEWARE = [
@@ -85,7 +86,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '2936',
         'HOST': 'localhost',
-        "PORT": '5432',
+        "PORT": '5433',
     }
 }
 

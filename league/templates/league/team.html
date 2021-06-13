@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block title %} Zespół: {{ team.name }} <br/><br/> Zawodnicy: {% endblock %}
+{% block content %}
+
+        <table class="table table-bordered" style="width: 50%">
+            <thead>
+                <tr>
+                    <th style="width: 33%" scope="col">Imie</th>
+                    <th style="width: 33%" scope="col">Nazwisko</th>
+                    <th style="width: 10%" scope="col">Numer</th>
+                    <th style="width: 33%" scope="col">Nazwa uzytkownika</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in players %}
+                <tr onclick="window.location = window.location.href.split('?')[0] + 'profile/?profile_id={{player.id}}'">
+                    <th> {{ player.name }}</th>
+                    <th> {{ player.surname }}</th>
+                    <th> {{ player.number }}</th>
+                    <th> {{ player.user.username }}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br/>
+
+
+{% endblock %}

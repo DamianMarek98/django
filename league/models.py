@@ -9,8 +9,13 @@ class Team(models.Model):
     name = models.CharField(max_length=50, null=False)
     points = models.IntegerField(null=True)
 
+    def __str__(self):
+        return '%s' % self.name
+
 
 class Player(models.Model):
+    name = models.CharField(max_length=50, null=True)
+    surname = models.CharField(max_length=50, null=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     team = models.ForeignKey(Team, on_delete=models.SET_NULL, null=True, blank=True)
     number = models.IntegerField(null=True)
@@ -22,10 +27,17 @@ class Match(models.Model):
     away_score = models.IntegerField(null=True)
 
 class Comment(models.Model):
-    text = models.CharField(max_length=256, null=False)
+    text = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True, null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     match = models.ForeignKey(Match, on_delete=models.SET_NULL, null=True, blank=True)
+
+    class Meta:
+        ordering = ['date_created']
+
+    def __str__(self):
+        return 'Comment {} by {}'.format(self.text, self.user.username)
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

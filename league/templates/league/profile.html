@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block title %} <h2>Użytkownik:</h2> {% endblock %}
+{% block content %}
+<br/>
+Nazwa użytkownika: {{player.user.username}}
+<br/>
+Imie: {{player.name}}
+<br/>
+Nazwisko: {{player.surname}}
+<br/>
+Zespół: {{player.team.name}}
+<br/>
+Numer na boisku: {{player.number}}
+
+{% endblock %}
