@@ -30,12 +30,13 @@ SECRET_KEY = 'django-insecure-^_lswttcri&o!6@8$ja=8w*0+a5&)!awxz(q*z$jc3r$j0%0^9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'league-django-js.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'league-django-js.herokuapp.com', '.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -152,6 +153,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 LOGIN_REDIRECT_URL = "/table"
 
 LOGOUT_REDIRECT_URL = "/login"
+
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
