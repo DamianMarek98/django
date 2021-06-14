@@ -41,7 +41,7 @@ class Match(models.Model):
 class Comment(models.Model):
     text = models.TextField(verbose_name='Tekst')
     date_created = models.DateTimeField(auto_now_add=True, null=False, verbose_name='Data')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Uzytkownik')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Uzytkownik')
     match = models.ForeignKey(Match, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Mecz')
 
     class Meta:
