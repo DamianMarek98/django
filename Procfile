@@ -1,1 +1,1 @@
-web: gunicorn league.wsgi --log-file -p
+web: gunicorn league.wsgi --log-file -
