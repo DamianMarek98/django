@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-^_lswttcri&o!6@8$ja=8w*0+a5&)!awxz(q*z$jc3r$j0%0^9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'league-django-js.herokuapp.com', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'league-django-js.herokuapp.com', 'js-django.herokuapp.com', '.herokuapp.com']
 
 
 # Application definition
